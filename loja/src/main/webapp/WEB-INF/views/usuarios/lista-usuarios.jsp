@@ -1,31 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- Import da taglib -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lista Usuários Cadastrados</title>
 
-	<!-- Defina as referencias para os arquivos de eslito (css) -->
-	<link rel="stylesheet" href="resources/jquery-ui/themes/base/jquery-ui.css" />
-	<link rel="stylesheet" href="resources/css/meus-estilos.css" />
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Loja de Livros</title>
 	
-	<!-- Definas as referencias para os arquivos javascripts das biblitecas Jquery e Jquery UI-->
-	<script type="text/javascript" src="resources/jquery-ui/external/jquery/jquery.js"></script>
-	<script type="text/javascript" src="resources/jquery-ui/jquery-ui.js"></script>
-	<script type="text/javascript" src="resources/js/minhas-funcoes-visao.js"></script>
-	<script type="text/javascript" src="resources/js/my-jquery.js"></script>
-	<script type="text/javascript" src="resources/js/manipula-formularios.js"></script>
-
+    <!-- Bootstrap -->
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+       <!-- Custom styles for this template -->
+    <link href="resources/css/starter-template.css" rel="stylesheet">
+	<script src="resources/js/bootstrap-filestyle.min.js"></script>
 </head>
+
 <body>
 
-	<div class="ui-widget">
-		<h1>Usuários já cadastrados</h1>
-		<table id="users" class="ui-widget ui-widget-content">
-			<thead class="ui-widget-header">
+	<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <figure class="logo">
+                <a class="navbar-brand topnav" href="/loja"><img src="resources/minhas-imagens/logo.png" width="25" height="25"></a>
+                </figure>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	<ul class="nav navbar-nav">				
+				</ul>
+                <ul class="nav navbar-nav navbar-right">
+						<li><a href="/loja">Início</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	<div class="container">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Usuários já cadastrados</div>
+		<table class="table table-striped">
+			<thead>
 				<tr>
 					<th>Nome</th>
 					<th>Usuario</th>
@@ -34,25 +57,25 @@
 					<th>Ação</th>
 				</tr>
 			</thead>
-			<tbody class="ui-widget-content">
+			<tbody>
 				<c:forEach items="${usuarios }" var="usuario">
 					<tr>
 						<td>${usuario.nome}</td>
 						<td>${usuario.login}</td>
-						<td><span class="ui-icon ui-icon-mail-closed"
-							style="margin: 0 2px 0 2px; float: left;"></span> ${usuario.email }</td>
+						<td>${usuario.email }</td>
 						<td>${usuario.senha }</td>
-						<td><span class="ui-icon ui-icon-copy"></span> Alterar <span
-							class="ui-icon ui-icon-closethick"></span> Excluir</td>
+						<td>Alterar | Excluir</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-
-	<button type="submit" class="ui-button ui-widget ui-corner-all"
-		onclick="window.location.href='/loja/novoUsuario'">
-		<span class="ui-icon ui-icon-document"></span> Novo
-	</button>
+	<div>
+		<button type="submit" class="btn btn-primary btn-block" onclick="window.location.href='/loja'">
+			 Volta
+		</button>
+		<button type="submit" class="btn btn-primary btn-block" onclick="window.location.href='/loja/novoUsuario'"> Novo
+		</button>
+	</div>
 </body>
 </html>
