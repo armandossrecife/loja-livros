@@ -68,4 +68,10 @@ public class UsuarioController {
     		return new ModelAndView("redirect:/listaUsuarios");
     }
     
+    @RequestMapping("/novoUsuarioExterno")
+    public String formUsuarioExterno(){
+    	//TODO implementa o cadastro de um usuario externo 
+    	return "usuarios/formulario-usuario-externo";
+    }
+   
 }

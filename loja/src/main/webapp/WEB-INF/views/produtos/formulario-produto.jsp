@@ -48,7 +48,7 @@
 		<div class="container">
 			<div class="panel panel-default">
 				<form action="salvaProduto" method="post" enctype="multipart/form-data">
-				<h2 class="text-center">Lista de Livros</h2>
+				<h2 class="text-center">Cadastra Livro</h2>
 				<hr>
 					<div class="form-group">
 						<label>Título</label>

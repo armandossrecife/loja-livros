@@ -85,5 +85,11 @@ public class ProdutosController {
         mav.addObject("produtos", produtos);
         return mav;
     }
+    
+    @RequestMapping("/removeProduto")
+    public String removeProduto(){
+    	//TODO implementar a remoção de um produto
+    	return "produtos/remove-produtos"; 
+    }
 
 }
